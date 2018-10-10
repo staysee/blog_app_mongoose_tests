@@ -61,7 +61,8 @@ describe('Blog Posts API resource', function(){
 				.then(function(_res){
 					res = _res;
 					expect(res).to.have.status(200);
-					expect(res.body.posts).to.have.lengthOf.at.least(1);
+					console.info(res.body);
+					expect(res.body).to.have.lengthOf.at.least(1);
 					return BlogPost.count();
 				})
 				.then(function(count) {
