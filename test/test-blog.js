@@ -35,7 +35,7 @@ function tearDownDb(){
 	return mongoose.connection.dropDatabase();
 }
 
-describe('Blog Posts API sesource', function(){
+describe('Blog Posts API resource', function(){
 	before(function(){
 		return runServer(TEST_DATABASE_URL);
 	})
@@ -52,7 +52,7 @@ describe('Blog Posts API sesource', function(){
 		return closeServer();
 	})
 
-	describe('GET endpoing', function() {
+	describe('GET endpoint', function() {
 		it('should return all existing blogposts', function() {
 
 			let res;
