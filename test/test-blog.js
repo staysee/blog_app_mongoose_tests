@@ -1,7 +1,7 @@
 'use strict';
 
 const chai = require('chai');
-const chaitHttp = require('chai-http');
+const chaiHttp = require('chai-http');
 const faker = require('faker');
 const mongoose = require('mongoose');
 
@@ -81,7 +81,7 @@ describe('Blog Posts API sesource', function(){
 					expect(res.body.posts).to.have.lengthOfat.least(1);
 
 					res.body.posts.forEach(function(post) {
-						expect(post).to.be.a.('object');
+						expect(post).to.be.a('object');
 						expect(post).to.include.keys('id', 'title', 'content', 'author', 'created');
 					});
 					resBlogPost = res.body.posts[0];
