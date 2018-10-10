@@ -78,14 +78,14 @@ describe('Blog Posts API resource', function(){
 				.then(function(res) {
 					expect(res).to.have.status(200);
 					expect(res).to.be.json;
-					expect(res.body.posts).to.be.a('array');
-					expect(res.body.posts).to.have.lengthOfat.least(1);
+					expect(res.body).to.be.a('array');
+					expect(res.body).to.have.lengthOf.at.least(1);
 
-					res.body.posts.forEach(function(post) {
+					res.body.forEach(function(post) {
 						expect(post).to.be.a('object');
 						expect(post).to.include.keys('id', 'title', 'content', 'author', 'created');
 					});
-					resBlogPost = res.body.posts[0];
+					resBlogPost = res.body[0];
 					return BlogPost.findById(resBlogPost.id);
 				})
 				.then(function(post) {
