@@ -89,6 +89,8 @@ describe('Blog Posts API resource', function(){
 					return BlogPost.findById(resBlogPost.id);
 				})
 				.then(function(post) {
+					console.info(resBlogPost);
+					console.info(post);
 					expect(resBlogPost.title).to.equal(post.title);
 					expect(resBlogPost.content).to.equal(post.content);
 					expect(resBlogPost.author).to.equal(post.author);
