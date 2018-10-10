@@ -158,10 +158,26 @@ describe('Blog Posts API sesource', function(){
 		})
 	})
 
+	describe('DELETE endpoing', function() {
+		it('delete a restaurant by id', function() {
 
+			let post;
 
-
-
+			return BlogPost
+				.findOne()
+				.then(function(_post) {
+					post = _post;
+					return chai.request(app).delete(`/posts/${post.id}`);
+				})
+				.then(function(res) {
+					expect(res).to.have.status(204);
+					return BlogPost.findById(post.id);
+				})
+				.then(function(_post) {
+					expect(_post).to.be.null;
+				})
+		})
+	})
 })
 
 
